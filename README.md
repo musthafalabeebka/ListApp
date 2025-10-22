@@ -31,8 +31,6 @@ Users can add, search, and delete employee records in a clean and intuitive inte
 |--------------|---------------|----------------|
 | ![Home](Screenshots/home.png) | ![Add](Screenshots/add.png) | ![Search](Screenshots/search.png) |
 
-*(Add screenshots later by placing them in a `/Screenshots` folder)*
-
 ---
 
 ## 🏗️ Project Structure
