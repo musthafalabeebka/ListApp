@@ -114,7 +114,7 @@ employees.filter { emp in
 ## 🧑‍💻 Author
 
 **Musthafa Labeeb K A**  
-📍 MVoc Software Application Development, CUSAT   
+📍 Student, MVoc Software Application Development, CUSAT   
 🔗 [GitHub Profile](https://github.com/musthafalabeebka)
 
 ---
