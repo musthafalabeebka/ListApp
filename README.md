@@ -36,14 +36,12 @@ Users can add, search, and delete employee records in a clean and intuitive inte
 ## 🏗️ Project Structure
 
 ```
-EmployeeListApp/
+ListApp/
 │
-├── EmployeeListAppApp.swift        # Entry point of the SwiftUI app
+├── ListAppApp.swift        # Entry point of the SwiftUI app
 ├── ContentView.swift               # Main employee list view
 ├── ListData.swift                  # Add new employee view (form)
 ├── Persistence.swift               # Core Data setup
-├── Employee+CoreDataClass.swift    # Employee entity class
-├── Employee+CoreDataProperties.swift # Employee entity properties
 └── Assets.xcassets                 # App assets
 ```
 
@@ -53,13 +51,13 @@ EmployeeListApp/
 
 1. Clone the repository  
    ```bash
-   git clone https://github.com/yourusername/EmployeeListApp.git
-   cd EmployeeListApp
+   git clone https://github.com/musthafalabeebka/ListApp.git
+   cd ListApp
    ```
 
 2. Open the project in **Xcode**  
    ```bash
-   open EmployeeListApp.xcodeproj
+   open ListApp.xcodeproj
    ```
 
 3. Build and run the app on **iPhone Simulator** or a **real device**.
@@ -116,14 +114,7 @@ employees.filter { emp in
 ## 🧑‍💻 Author
 
 **Musthafa Labeeb K A**  
-📍 MVoc Software Application Development, CUSAT  
-💼 Flutter Developer Intern @ MACH10 Global Consultancy Pvt Ltd  
-🔗 [GitHub Profile](https://github.com/yourusername)
-
----
-
-## 🪪 License
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+📍 MVoc Software Application Development, CUSAT   
+🔗 [GitHub Profile](https://github.com/musthafalabeebka)
 
 ---
