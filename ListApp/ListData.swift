@@ -1,12 +1,19 @@
+// MARK: - ListData View
 import SwiftUI
 import CoreData
 
 struct ListData: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @Environment(\.dismiss) private var dismiss  // <- allows dismissing the sheet
+    @Environment(\.dismiss) private var dismiss
+    
+    var employeeToEdit: Employee?
     
     @State private var empName: String = ""
     @State private var empAge: Int = 0
+    
+    var isEditMode: Bool {
+        employeeToEdit != nil
+    }
     
     var body: some View {
         NavigationView {
@@ -24,8 +31,8 @@ struct ListData: View {
                     .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 
-                Button(action: addEmployee) {
-                    Text("Add Employee")
+                Button(action: saveEmployee) {
+                    Text(isEditMode ? "Update Employee" : "Add Employee")
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity)
@@ -37,21 +44,30 @@ struct ListData: View {
                 Spacer()
             }
             .padding()
-            .navigationTitle("Add Employee")
+            .navigationTitle(isEditMode ? "Edit Employee" : "Add Employee")
+            .onAppear {
+                if let employee = employeeToEdit {
+                    empName = employee.empName ?? ""
+                    empAge = Int(employee.empAge)
+                }
+            }
         }
     }
     
-    private func addEmployee() {
-        let newEmployee = Employee(context: viewContext)
-        newEmployee.empName = empName
-        newEmployee.empAge = Int64(empAge)
+    private func saveEmployee() {
+        if let employee = employeeToEdit {
+            // Update existing employee
+            employee.empName = empName
+            employee.empAge = Int64(empAge)
+        } else {
+            // Create new employee
+            let newEmployee = Employee(context: viewContext)
+            newEmployee.empName = empName
+            newEmployee.empAge = Int64(empAge)
+        }
         
         do {
             try viewContext.save()
-            // Reset inputs
-            empName = ""
-            empAge = 0
-            // Dismiss the sheet
             dismiss()
         } catch {
             print("Error saving employee: \(error.localizedDescription)")
