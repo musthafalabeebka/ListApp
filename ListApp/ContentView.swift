@@ -12,6 +12,7 @@ struct ContentView: View {
     
     @State private var searchText: String = ""
     @State private var showingAddEmployee = false
+    @State private var selectedEmployee: Employee?
     
     // Filter employees in memory based on search text
     private var filteredEmployees: [Employee] {
@@ -45,6 +46,10 @@ struct ContentView: View {
                             Text("Age: \(employee.empAge)")
                                 .font(.subheadline)
                         }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            selectedEmployee = employee
+                        }
                     }
                     .onDelete(perform: deleteEmployee)
                 }
@@ -58,9 +63,14 @@ struct ContentView: View {
                     }
                 }
             }
-            // Show ListData view as a modal
+            // Show ListData view as a modal for adding
             .sheet(isPresented: $showingAddEmployee) {
                 ListData()
+                    .environment(\.managedObjectContext, viewContext)
+            }
+            // Show ListData view as a modal for editing
+            .sheet(item: $selectedEmployee) { employee in
+                ListData(employeeToEdit: employee)
                     .environment(\.managedObjectContext, viewContext)
             }
         }
@@ -83,3 +93,4 @@ struct ContentView: View {
 #Preview {
     ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
+
