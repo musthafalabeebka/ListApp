@@ -27,9 +27,9 @@ Users can add, search, and delete employee records in a clean and intuitive inte
 
 ## 📱 Screens
 
-| Home Screen | Add Employee | Search Employee |
-|--------------|---------------|----------------|
-| ![Home](Screenshots/home.png) | ![Add](Screenshots/add.png) | ![Search](Screenshots/search.png) |
+| Home Screen | Add Employee | Search Employee | Edit Employee |
+|--------------|---------------|----------------|------------------|
+| ![Home](Screenshots/home.png) | ![Add](Screenshots/add.png) | ![Search](Screenshots/search.png) | ![Edit](Screenshots/edit.png) |
 
 ---
 
